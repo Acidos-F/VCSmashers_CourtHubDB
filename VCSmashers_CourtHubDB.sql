@@ -150,3 +150,18 @@ CREATE TABLE IF NOT EXISTS `contact_submissions` (
   PRIMARY KEY (`submission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- ==============================
+-- Transactions - K
+-- ==============================
+CREATE TABLE IF NOT EXISTS transactions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  payment_intent_id VARCHAR(100) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  contact_number VARCHAR(30) NULL,
+  amount DECIMAL(10,2) NOT NULL,
+  currency VARCHAR(10) DEFAULT 'PHP',
+  description VARCHAR(255),
+  status VARCHAR(50) DEFAULT 'pending',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
