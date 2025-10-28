@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` VARCHAR(255) NOT NULL UNIQUE,
   `phone` VARCHAR(20) DEFAULT NULL,
   `pass` VARCHAR(255) NOT NULL,
+  `profile_pic` VARCHAR(255) NULL,
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   CONSTRAINT `fk_users_role` FOREIGN KEY (`role_id`) 
