@@ -24,6 +24,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` VARCHAR(20) DEFAULT NULL,
   `pass` VARCHAR(255) NOT NULL,
   `profile_pic` VARCHAR(255) NULL,
+  `pref_notify_email` TINYINT(1) DEFAULT 1,
+  `pref_notify_sms` TINYINT(1) DEFAULT 0,
+  `pref_language` VARCHAR(10) DEFAULT 'en',
+  `pref_timezone` VARCHAR(64) DEFAULT 'Asia/Manila',
+  `pref_time_window` VARCHAR(16) DEFAULT 'any',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   CONSTRAINT `fk_users_role` FOREIGN KEY (`role_id`) 
@@ -47,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `event_date` DATE NOT NULL,
   `event_time` TIME NOT NULL,
   `booking_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `event_end_time` TIME NOT NULL,
   `status` VARCHAR(50) DEFAULT 'PENDING', -- PENDING, CONFIRMED, CANCELLED
   PRIMARY KEY (`booking_id`),
   CONSTRAINT `fk_bookings_user` FOREIGN KEY (`user_id`) 
